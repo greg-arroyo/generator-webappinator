@@ -1,18 +1,16 @@
 {
-    "name": "<%= _.slugify(_.humanize(appname)) %>",
-    "version": "0.0.0",
+    "name": "<%= (appName) %>",
+    "version": "0.1.0",
+    "license": "MIT",
+    "private": true,
     "dependencies": {
-        "angular": "1.2.6"<% if (resourceModule) { %>,
-        "angular-resource": "1.2.6"<% } if (cookiesModule) { %>,
-        "angular-cookies": "1.2.6"<%  } if (sanitizeModule) { %>,
-        "angular-sanitize": "1.2.6"<% } if (routeModule) { %>,
-        "angular-route": "1.2.6"<%    } if (jquery) { %>,
-        "jquery": "*"<%               } if (modernizr) { %>,
-        "modernizr": "*" <% } %>
+        "angular": "1.2.21"<% if (modAngularRoute) { %>,
+        "angular-route": "1.2.21"<% } if (modJQuery) { %>,
+        "jquery": ">=2.1.1"<% } %>
     },
     "devDependencies": {
-        "angular-mocks": "1.2.6",
-        "angular-scenario": "1.2.6"
+        "angular-mocks": "1.2.21",
+        "angular-scenario": "1.2.21"
     },
     "overrides": { }
 }

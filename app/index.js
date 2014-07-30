@@ -3,47 +3,63 @@ var util = require('util');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
+var WebappinatorGenerator = module.exports = function WebappinatorGenerator(args, options) {
+    yeoman.generators.Base.apply(this, arguments);
 
-var WebappinatorGenerator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json');
-
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
+    this.on('end', function installDependencies() {
+        this.installDependencies({
+            skipInstall: options['skip-install']
+        });
     });
-  },
+};
 
-  askFor: function () {
+util.inherits(WebappinatorGenerator, yeoman.generators.Base);
+
+WebappinatorGenerator.prototype.promptForConfiguration = function promptForConfiguration() {
     var done = this.async();
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    var prompts = [
+        {
+            name: 'appName',
+            message: 'What name should I use for this new app?',
+            default: 'New Project'
+        },
+        {
+            type: 'confirm',
+            name: 'modAngularRoute',
+            message: 'Install the angular-route module?',
+            default: true
+        },
+        {
+            type: 'confirm',
+            name: 'modJQuery',
+            message: 'Install jQuery?',
+            default: false
+        }
+    ];
 
-    this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
-
-      done();
+    this.prompt(prompts, function processAnswers(answers) {
+        this.appName = answers.appName;
+        this.modAngularRoute = answers.modAngularRoute;
+        this.modJQuery = answers.modJQuery;
+        done();
     }.bind(this));
-  },
+};
 
-  app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
-
+WebappinatorGenerator.prototype.createProjectFiles = function createProjectFiles() {
+    this.template('src/_index.html', 'src/index.html', this);
+    this.copy('src/css/_style.css', 'src/css/style.css');
+    this.copy('src/js/_app.js', 'src/js/app.js');
     this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-  },
+    this.template('_bower.json', 'bower.json', this);
+    this.copy('_gitignore', '.gitignore');
+    this.copy('_gitattributes', '.gitattributes');
+};
 
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
-  }
-});
 
-module.exports = WebappinatorGenerator;
+
+
+
+
+
+

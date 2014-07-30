@@ -16,8 +16,8 @@
         "url": "https://github.com/arroyocode"
     },
     "engines": {
-        "node": ">=0.10.0",
-        "npm": ">=1.2.10"
+        "node": ">=0.10.29",
+        "npm": ">=1.4.21"
     },
     "scripts": {
         "test": "mocha"
@@ -26,15 +26,15 @@
         "yeoman-generator"
     ],
     "dependencies": {
-        "yeoman-generator": "~0.16.0",
-        "chalk": "~0.4.0"
+        "yeoman-generator": "~0.17.1",
+        "chalk": "~0.5.1"
     },
     "devDependencies": {
-        "mocha": "~1.14.0"
+        "mocha": "~1.21.3"
     },
     "peerDependencies": {
-        "yo": ">=1.0.0",
-        "bower": ">=1.0.0",
-        "grunt-cli": ">=0.1.0"
+        "yo": ">=1.2.1",
+        "bower": ">=1.3.8",
+        "grunt-cli": ">=0.1.13"
     }
 }
