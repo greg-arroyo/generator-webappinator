@@ -5,7 +5,7 @@
 > including additional angular modules and jQuery via prompt.
 
 ## Installation
----------
+
 You will need [Node.js](http://nodejs.org/) and Yeoman `npm install -g yo` installed.
 
 Install the Webappinator Generator
