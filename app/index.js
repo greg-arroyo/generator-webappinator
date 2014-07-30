@@ -15,6 +15,13 @@ var WebappinatorGenerator = module.exports = function WebappinatorGenerator(args
 
 util.inherits(WebappinatorGenerator, yeoman.generators.Base);
 
+WebappinatorGenerator.prototype.welcome = function(){
+    if (!this.options['skip-welcome-message']){
+        console.log('Welcome to the Webappinator Angular Generator.\n');
+        console.log(this.yeoman);
+    }
+}
+
 WebappinatorGenerator.prototype.promptForConfiguration = function promptForConfiguration() {
     var done = this.async();
 
