@@ -1,6 +1,7 @@
 'use strict';
 var util = require('util');
 var yeoman = require('yeoman-generator');
+var yosay = require('yosay');
 var chalk = require('chalk');
 
 var WebappinatorGenerator = module.exports = function WebappinatorGenerator(args, options) {
@@ -17,56 +18,62 @@ util.inherits(WebappinatorGenerator, yeoman.generators.Base);
 
 WebappinatorGenerator.prototype.welcome = function(){
     if (!this.options['skip-welcome-message']){
-        console.log('Welcome to the Webappinator Angular Generator.\n');
-        console.log(this.yeoman);
+        this.log(yosay());
+        this.log(chalk.yellow('Welcome to the Webappinator Web App Generator.\n'));
     }
 }
 
-WebappinatorGenerator.prototype.promptForConfiguration = function promptForConfiguration() {
+WebappinatorGenerator.prototype.askForAppName = function askForAppName() {
     var done = this.async();
 
-    var prompts = [
-        {
-            name: 'appName',
-            message: 'What name should I use for this new app?',
-            default: 'New Project'
-        },
-        {
-            type: 'confirm',
-            name: 'modAngularRoute',
-            message: 'Install the angular-route module?',
-            default: true
-        },
-        {
-            type: 'confirm',
-            name: 'modJQuery',
-            message: 'Install jQuery?',
-            default: false
-        }
-    ];
+    this.prompt([{
+        name: 'appName',
+        message: 'What is the new app name?',
+        default: 'MyApp'
+    }], function(props){
+        this.appName = props.appName;
+        done();
+    }.bind(this));
+};
 
-    this.prompt(prompts, function processAnswers(answers) {
-        this.appName = answers.appName;
-        this.modAngularRoute = answers.modAngularRoute;
-        this.modJQuery = answers.modJQuery;
+WebappinatorGenerator.prototype.askForModules = function askForModules() {
+    var done = this.async();
+
+    var prompts = [{
+        type: 'checkbox',
+        name: 'modules',
+        message: 'Which modules shall I include?',
+        choices: [
+            {
+                value: 'modAngularRoute',
+                name: 'angular-route.js',
+                checked: true
+            }, {
+                value: 'modJQuery',
+                name: 'jQuery',
+                checked: false
+            }
+        ]
+    }];
+
+    this.prompt(prompts, function(props){
+        var hasModule = function(mod) { return props.modules.indexOf(mod) !== -1; };
+        this.modAngularRoute = hasModule('modAngularRoute');
+        this.modJQuery = hasModule('modJQuery');
         done();
     }.bind(this));
 };
 
 WebappinatorGenerator.prototype.createProjectFiles = function createProjectFiles() {
-    this.template('src/_index.html', 'src/index.html', this);
-    this.copy('src/css/_style.css', 'src/css/style.css');
-    this.copy('src/js/_app.js', 'src/js/app.js');
+    this.template('dist/_index.html', 'dist/index.html', this);
+    this.mkdir('dist/images');
+    this.copy('dist/styles/_style.css', 'dist/styles/style.css');
+    this.mkdir('dist/scripts/controllers');
+    this.mkdir('dist/scripts/directives');
+    this.mkdir('dist/scripts/services');
+    this.copy('dist/scripts/_app.js', 'dist/scripts/app.js');
     this.copy('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json', this);
     this.copy('_gitignore', '.gitignore');
     this.copy('_gitattributes', '.gitattributes');
 };
-
-
-
-
-
-
-
-
