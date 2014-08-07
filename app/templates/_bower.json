@@ -5,7 +5,11 @@
     "private": true,
     "dependencies": {
         "angular": "1.2.21"<% if (modAngularRoute) { %>,
-        "angular-route": "1.2.21"<% } if (modJQuery) { %>,
+        "angular-route": "1.2.21"<% } if (modAngularAnimate) { %>,
+        "angular-animate": "1.2.21"<% } if (modAngularCookies) { %>,
+        "angular-cookies": "1.2.21"<% } if (modAngularResource) { %>,
+        "angular-resource": "1.2.21"<% } if (modAngularSanitize) { %>,
+        "angular-sanitize": "1.2.21"<% } if (modJQuery) { %>,
         "jquery": ">=2.1.1"<% } %>
     },
     "devDependencies": {

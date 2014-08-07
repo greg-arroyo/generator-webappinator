@@ -49,6 +49,22 @@ WebappinatorGenerator.prototype.askForModules = function askForModules() {
                 name: 'angular-route.js',
                 checked: true
             }, {
+                value: 'modAngularAnimate',
+                name: 'angular-animate.js',
+                checked: false
+            }, {
+                value: 'modAngularCookies',
+                name: 'angular-cookies.js',
+                checked: false
+            }, {
+                value: 'modAngularResource',
+                name: 'angular-resource.js',
+                checked: false
+            }, {
+                value: 'modAngularSanitize',
+                name: 'angular-sanitize.js',
+                checked: false
+            }, {
                 value: 'modJQuery',
                 name: 'jQuery',
                 checked: false
@@ -59,6 +75,10 @@ WebappinatorGenerator.prototype.askForModules = function askForModules() {
     this.prompt(prompts, function(props){
         var hasModule = function(mod) { return props.modules.indexOf(mod) !== -1; };
         this.modAngularRoute = hasModule('modAngularRoute');
+        this.modAngularAnimate = hasModule('modAngularAnimate');
+        this.modAngularCookies = hasModule('modAngularCookies');
+        this.modAngularResource = hasModule('modAngularResource');
+        this.modAngularSanitize = hasModule('modAngularSanitize');
         this.modJQuery = hasModule('modJQuery');
         done();
     }.bind(this));

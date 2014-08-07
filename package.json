@@ -1,6 +1,6 @@
 {
     "name": "generator-webappinator",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "An angular/jasmine-focused generator for Yoeman",
     "homepage": "https://github.com/arroyocode/generator-webappinator",
     "bugs": "https://github.com/arroyocode/generator-webappinator/issues",
