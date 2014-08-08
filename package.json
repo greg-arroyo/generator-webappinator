@@ -1,14 +1,14 @@
 {
     "name": "generator-webappinator",
     "version": "0.1.1",
-    "description": "An angular/jasmine-focused generator for Yoeman",
+    "description": "An angular base web app generator for Yoeman",
     "homepage": "https://github.com/arroyocode/generator-webappinator",
     "bugs": "https://github.com/arroyocode/generator-webappinator/issues",
     "license": "MIT",
-    "main": "app/index.scripts",
+    "main": "app/index.js",
     "repository": {
         "type": "git",
-        "url": "arroyocode/generator-webappinator"
+        "url": "git://github.com/arroyocode/generator-webappinator.git"
     },
     "author": {
         "name": "Greg Arroyo",
@@ -19,9 +19,6 @@
         "node": ">=0.10.0",
         "npm": ">=1.2.10"
     },
-    "scripts": {
-        "test": "mocha"
-    },
     "keywords": [
         "yeoman-generator"
     ],
@@ -30,9 +27,7 @@
         "yosay": "^0.2.0",
         "chalk": "^0.4.0"
     },
-    "devDependencies": {
-        "mocha": ">=1.14.0"
-    },
+    "devDependencies": {},
     "peerDependencies": {
         "yo": ">=1.0.0",
         "bower": ">=1.0.0"
