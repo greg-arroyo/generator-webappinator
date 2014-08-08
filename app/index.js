@@ -7,7 +7,7 @@ var chalk = require('chalk');
 var WebappinatorGenerator = module.exports = function WebappinatorGenerator(args, options) {
     yeoman.generators.Base.apply(this, arguments);
 
-    this.on('end', function installDependencies() {
+    this.on('end', function () {
         this.installDependencies({
             skipInstall: options['skip-install']
         });
