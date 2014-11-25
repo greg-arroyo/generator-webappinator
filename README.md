@@ -8,7 +8,7 @@
 
 You will need [Node.js](http://nodejs.org/) and Yeoman `npm install -g yo` installed.
 
-Install the Webappinator Generator
+Install the Webappinator Generator (also available here: https://www.npmjs.org/package/generator-webappinator)
 
 ```
 npm install -g generator-webappinator
