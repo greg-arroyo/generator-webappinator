@@ -1,4 +1,5 @@
-# generator-webappinator [![Build Status](https://travis-ci.org/arroyocode/generator-webappinator.svg?branch=master)](https://travis-ci.org/arroyocode/generator-webappinator)  [![NPM Version](https://img.shields.io/npm/v/generator-webappinator.svg?style=flat)](https://www.npmjs.org/package/generator-webappinator) [![NPM Downloads](https://img.shields.io/npm/dm/generator-webappinator.svg?style=flat)](https://www.npmjs.org/package/generator-webappinator)
+# generator-webappinator 
+[![Build Status](https://travis-ci.org/arroyocode/generator-webappinator.svg?branch=master)](https://travis-ci.org/arroyocode/generator-webappinator)  [![NPM Version](https://img.shields.io/npm/v/generator-webappinator.svg?style=flat)](https://www.npmjs.org/package/generator-webappinator) [![NPM Downloads](https://img.shields.io/npm/dm/generator-webappinator.svg?style=flat)](https://www.npmjs.org/package/generator-webappinator)
 
 > An angular-focused  [Yeoman](http://yeoman.io) generator that scaffolds a starting web app for quick 
 > prototyping. It will generate starting HTML, CSS and JavaScript (pre-linked) with additional options for
