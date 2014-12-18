@@ -1,4 +1,4 @@
-# generator-webappinator
+# generator-webappinator [![Build Status](https://travis-ci.org/arroyocode/generator-webappinator.svg?branch=master)](https://travis-ci.org/arroyocode/generator-webappinator)
 
 > An angular-focused  [Yeoman](http://yeoman.io) generator that scaffolds a starting web app for quick 
 > prototyping. It will generate starting HTML, CSS and JavaScript (pre-linked) with additional options for
